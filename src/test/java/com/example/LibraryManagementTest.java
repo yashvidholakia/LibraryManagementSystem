@@ -13,10 +13,10 @@ public class LibraryManagementTest
      */
     private LibraryManagement management;
 
-     @Before
-     public void setUp(){
+    @Before
+    public void setUp(){
         management=new LibraryManagement();
-     }
+    }
 
     @Test
     public void testEmptyISBNValue(){

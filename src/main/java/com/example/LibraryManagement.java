@@ -43,8 +43,42 @@ public class LibraryManagement
     
     public static void main( String[] args )
     {
+        
+        while(true){
     
-       LibraryManagement management=new LibraryManagement();
+            LibraryManagement management=new LibraryManagement();
+            Scanner scan=new Scanner(System.in);
+            System.out.println("1).Add Book");
+            System.out.println("2).Borrow Book");
+            System.out.println("3).Return Book");
+            System.out.println("4).View Available Book");
+            System.out.println("5).Exit");
+            System.out.println("Enter your Choice");
+            int value=scan.nextInt();
+            scan.nextLine();
+       
+
+        switch(value){
+            case 1:
+                System.out.println("Enter ISBN Number");
+                String ISBN=scan.nextLine();
+                System.out.println("Enter Title of Book");
+                String title=scan.nextLine();
+                System.out.println("Enter Author name");
+                String author=scan.nextLine();
+                System.out.println("Enter Published Year");
+                int publishYear=scan.nextInt();
+                scan.nextLine();
+                management.addBook(ISBN, title, author, publishYear);
+                break;
+                default:
+                    System.out.println("Invalid input");
+
+
+                }
+
+       }
+       
         
     }
 }
