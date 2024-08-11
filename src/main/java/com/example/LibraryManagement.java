@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class LibraryManagement 
 {
     public HashMap<String,Book>book=new HashMap<>();
+    private HashMap<String, Boolean> bookAvailability = new HashMap<>();
     public String addBook(String ISBN,String title,String author,Integer publishYear){
         
         if (ISBN.isEmpty()) {
@@ -35,10 +36,20 @@ public class LibraryManagement
         
         Book newBook=new Book(ISBN, title, author, publishYear);
         book.put(ISBN,newBook);
+        bookAvailability.put(ISBN, true);
         return "Book added: Book{ISBN='" + ISBN + "',title='" + title + "',author='" + author + "',publishYear=" + publishYear + "}";
 
-        
+    }
+    public String borrowBook(String ISBN) {
+        if (!book.containsKey(ISBN)) {
+            return "Book does not exist in the library";
+        }
+        if (!bookAvailability.get(ISBN)) {
+            return "Book is not available";
+        }
 
+        bookAvailability.put(ISBN, false); 
+        return "Book borrowed successfully";
     }
     
     public static void main( String[] args )

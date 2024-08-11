@@ -16,6 +16,8 @@ public class LibraryManagementTest
     @Before
     public void setUp(){
         management=new LibraryManagement();
+        management.addBook("1234567890", "The 5 AM Club", "Robin Sharma", 1998);
+        management.addBook("0987654321", "Atomic Habits", "James Clear", 2018);
     }
 
     @Test
@@ -60,4 +62,23 @@ public class LibraryManagementTest
         String val2 = management.addBook("2345678912", "Rich Dad Poor Dad", "Robert Kiyosaki", 1997);
         assertEquals("This book already exists", val2);
     }
+    @Test
+    public void testBorrowAvailableBook() {
+        String result = management.borrowBook("1234567890");
+        assertEquals("Book borrowed successfully", result);
+    }
+
+    @Test
+    public void testBorrowUnavailableBook() {
+        management.borrowBook("1234567890");
+        String result = management.borrowBook("1234567890");
+        assertEquals("Book is not available", result);
+    }
+
+    @Test
+    public void testBorrowNonexistentBook() {
+        String result = management.borrowBook("0000000000");
+        assertEquals("Book does not exist in the library", result);
+    }
+
 }
