@@ -62,7 +62,7 @@ public class LibraryManagement
         bookAvailability.put(ISBN, true); //indicating book is available
         return "Book returned successfully";
     }
-    
+
     
     public static void main( String[] args )
     {
@@ -99,6 +99,13 @@ public class LibraryManagement
                 ISBN=scan.nextLine();
                 System.out.println(management.borrowBook(ISBN)); 
                 break;
+
+            case 3:
+                System.out.println("Enter ISBN number to return");
+                ISBN=scan.nextLine();
+                System.out.println(management.returnBook(ISBN));
+                break;
+                    
 
                 default:
                     System.out.println("Invalid input");
