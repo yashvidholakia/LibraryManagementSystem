@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class LibraryManagement 
 {
-    public HashMap<String,Book>book=new HashMap<>();
+    public HashMap<String,Book>bookCollect=new HashMap<>();
     private HashMap<String, Boolean> bookAvailability = new HashMap<>();
     public String addBook(String ISBN,String title,String author,Integer publishYear){
         
@@ -30,18 +30,18 @@ public class LibraryManagement
         if(remove.length()!=10 && remove.length()!=13){
             return "Invalid ISBN NUmber";
         }
-        if(book.containsKey(ISBN)){//checking duplicate entry
+        if(bookCollect.containsKey(ISBN)){//checking duplicate entry
             return "This book already exists";
         }
         
         Book newBook=new Book(ISBN, title, author, publishYear);
-        book.put(ISBN,newBook);
+        bookCollect.put(ISBN,newBook);
         bookAvailability.put(ISBN, true);//it will be true indicating that book is available right now
         return "Book added: Book{ISBN='" + ISBN + "',title='" + title + "',author='" + author + "',publishYear=" + publishYear + "}";
 
     }
     public String borrowBook(String ISBN) {
-        if (!book.containsKey(ISBN)) {
+        if (!bookCollect.containsKey(ISBN)) {
             return "Book does not exist in the library";
         }
         if (!bookAvailability.get(ISBN)) {
@@ -52,7 +52,7 @@ public class LibraryManagement
         return "Book borrowed successfully";
     }
     public String returnBook(String ISBN) {
-        if (!book.containsKey(ISBN)) {
+        if (!bookCollect.containsKey(ISBN)) {
             return "Book does not exist in the library";
         }
         if (bookAvailability.get(ISBN)) {
@@ -61,6 +61,13 @@ public class LibraryManagement
 
         bookAvailability.put(ISBN, true); //indicating book is available
         return "Book returned successfully";
+    }
+    public void viewAvailableBooks() {
+        for (String ISBN : bookCollect.keySet()) {
+            Book book = bookCollect.get(ISBN);
+            boolean isAvailable = bookAvailability.get(ISBN);
+            System.out.println("ISBN: " + ISBN + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor() + ", Year: " + book.getPublishYear() + ", Available: " + isAvailable);
+        }
     }
 
     
@@ -105,10 +112,16 @@ public class LibraryManagement
                 ISBN=scan.nextLine();
                 System.out.println(management.returnBook(ISBN));
                 break;
-                    
+            case 4:
+                management.viewAvailableBooks();
+                break;    
+            case 5:
+                scan.close();
+                System.out.println("Exiting from program");
+                return;
 
-                default:
-                    System.out.println("Invalid input");
+            default:
+                System.out.println("Invalid input");
 
                 }
 
