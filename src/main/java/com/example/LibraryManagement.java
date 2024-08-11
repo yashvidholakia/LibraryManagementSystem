@@ -36,7 +36,7 @@ public class LibraryManagement
         
         Book newBook=new Book(ISBN, title, author, publishYear);
         book.put(ISBN,newBook);
-        bookAvailability.put(ISBN, true);
+        bookAvailability.put(ISBN, true);//it will be true indicating that book is available right now
         return "Book added: Book{ISBN='" + ISBN + "',title='" + title + "',author='" + author + "',publishYear=" + publishYear + "}";
 
     }
@@ -48,7 +48,7 @@ public class LibraryManagement
             return "Book is not available";
         }
 
-        bookAvailability.put(ISBN, false); 
+        bookAvailability.put(ISBN, false); //if book is borrowed then it will be false indicating that book is not available from now
         return "Book borrowed successfully";
     }
     
@@ -82,9 +82,14 @@ public class LibraryManagement
                 scan.nextLine();
                 management.addBook(ISBN, title, author, publishYear);
                 break;
+            case 2:
+                System.out.println("Enter ISBN number for borrowing book");
+                ISBN=scan.nextLine();
+                System.out.println(management.borrowBook(ISBN)); 
+                break;
+
                 default:
                     System.out.println("Invalid input");
-
 
                 }
 
