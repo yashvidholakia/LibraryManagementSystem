@@ -51,6 +51,18 @@ public class LibraryManagement
         bookAvailability.put(ISBN, false); //if book is borrowed then it will be false indicating that book is not available from now
         return "Book borrowed successfully";
     }
+    public String returnBook(String ISBN) {
+        if (!book.containsKey(ISBN)) {
+            return "Book does not exist in the library";
+        }
+        if (bookAvailability.get(ISBN)) {
+            return "Book was not borrowed";
+        }
+
+        bookAvailability.put(ISBN, true); //indicating book is available
+        return "Book returned successfully";
+    }
+    
     
     public static void main( String[] args )
     {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.LibraryManagementTest" time="0.037" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.LibraryManagementTest" time="0.04" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\YASHVI\AppData\Local\Temp\surefire5432794736996767288\surefirebooter7731530226643463103.jar C:\Users\YASHVI\AppData\Local\Temp\surefire5432794736996767288 2024-08-11T12-51-50_983-jvmRun1 surefire14123420294436306644tmp surefire_04066548954276843539tmp"/>
+    <property name="sun.java.command" value="C:\Users\YASHVI\AppData\Local\Temp\surefire16877267186196715161\surefirebooter14094177414300819202.jar C:\Users\YASHVI\AppData\Local\Temp\surefire16877267186196715161 2024-08-11T16-04-12_518-jvmRun1 surefire11562904207759974141tmp surefire_07412552351685124503tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\LibraryManagement\library\target\test-classes;E:\LibraryManagement\library\target\classes;C:\Users\YASHVI\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\YASHVI\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\YASHVI\AppData\Local\Temp\surefire5432794736996767288\surefirebooter7731530226643463103.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\YASHVI\AppData\Local\Temp\surefire16877267186196715161\surefirebooter14094177414300819202.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.3+7-LTS-152"/>
@@ -58,11 +58,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testInvalidISBNNumber" classname="com.example.LibraryManagementTest" time="0.003"/>
-  <testcase name="testEmptyPublishyearvalue" classname="com.example.LibraryManagementTest" time="0"/>
-  <testcase name="checkDuplicateEntryOfBook" classname="com.example.LibraryManagementTest" time="0.007"/>
+  <testcase name="testBorrowAvailableBook" classname="com.example.LibraryManagementTest" time="0.013"/>
+  <testcase name="testBorrowUnavailableBook" classname="com.example.LibraryManagementTest" time="0"/>
+  <testcase name="testInvalidISBNNumber" classname="com.example.LibraryManagementTest" time="0"/>
+  <testcase name="testEmptyPublishyearvalue" classname="com.example.LibraryManagementTest" time="0.001"/>
+  <testcase name="testReturnBookThatWasNotBorrowed" classname="com.example.LibraryManagementTest" time="0"/>
+  <testcase name="checkDuplicateEntryOfBook" classname="com.example.LibraryManagementTest" time="0.001"/>
   <testcase name="testEmptyISBNValue" classname="com.example.LibraryManagementTest" time="0"/>
-  <testcase name="testEmptyTitlevalue" classname="com.example.LibraryManagementTest" time="0"/>
+  <testcase name="testEmptyTitlevalue" classname="com.example.LibraryManagementTest" time="0.001"/>
   <testcase name="testAddBooks" classname="com.example.LibraryManagementTest" time="0"/>
   <testcase name="testEmptyAuthorvalue" classname="com.example.LibraryManagementTest" time="0"/>
+  <testcase name="testReturnBook" classname="com.example.LibraryManagementTest" time="0.001"/>
+  <testcase name="testBorrowNonexistentBook" classname="com.example.LibraryManagementTest" time="0"/>
 </testsuite>

@@ -80,5 +80,16 @@ public class LibraryManagementTest
         String result = management.borrowBook("0000000000");
         assertEquals("Book does not exist in the library", result);
     }
+    @Test
+    public void testReturnBook() {
+        management.borrowBook("1234567890");
+        String result = management.returnBook("1234567890");
+        assertEquals("Book returned successfully", result);
+    }
+    @Test
+    public void testReturnBookThatWasNotBorrowed() {
+        String result = management.returnBook("1234567890");
+        assertEquals("Book was not borrowed", result);
+    }
 
 }
