@@ -74,7 +74,7 @@
             <artifactId>exec-maven-plugin</artifactId>
             <version>3.4.0</version>
             <configuration>
-                <mainClass>com.example.LibraryManagement</mainClass> 
+                <mainClass>com.example.LibraryManagement</mainClass>
             </configuration>
         </plugin>
       </plugins>

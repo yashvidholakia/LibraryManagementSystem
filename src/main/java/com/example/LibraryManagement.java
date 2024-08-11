@@ -26,14 +26,18 @@ public class LibraryManagement
         }
         String remove=ISBN.replaceFirst("-","").replaceAll(" ","");//removing - and space
 
-        if(remove.length()!=10 || remove.length()!=13){
+        if(remove.length()!=10 && remove.length()!=13){
             return "Invalid ISBN NUmber";
-
+        }
+        if(book.containsKey(ISBN)){//checking duplicate entry
+            return "This book already exists";
         }
         
         Book newBook=new Book(ISBN, title, author, publishYear);
         book.put(ISBN,newBook);
-        return "Book Added:"+newBook;
+        return "Book added: Book{ISBN='" + ISBN + "',title='" + title + "',author='" + author + "',publishYear=" + publishYear + "}";
+
+        
 
     }
     
@@ -41,8 +45,6 @@ public class LibraryManagement
     {
     
        LibraryManagement management=new LibraryManagement();
-       
-
         
     }
 }

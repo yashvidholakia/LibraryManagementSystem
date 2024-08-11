@@ -44,7 +44,20 @@ public class LibraryManagementTest
         String val=management.addBook("1234567891234","The 5 am club","Robin Sharma",null);
         assertEquals("You have not entered publishing year",val);//checking empty value
     }
+    @Test
+    public void testAddBooks(){
+        String expected = "Book added: Book{ISBN='2345678912',title='Rich Dad Poor Dad',author='Robert Kiyosaki',publishYear=1997}";
+        String val = management.addBook("2345678912", "Rich Dad Poor Dad", "Robert Kiyosaki", 1997);
+        assertEquals(expected,val);
+    }
+    @Test
+    public void checkDuplicateEntryOfBook(){
+
+        String val1 = management.addBook("2345678912", "Rich Dad Poor Dad", "Robert Kiyosaki", 1997);
+        assertEquals("Book added: Book{ISBN='2345678912',title='Rich Dad Poor Dad',author='Robert Kiyosaki',publishYear=1997}", val1);
     
-
-
+        // adding the same book again
+        String val2 = management.addBook("2345678912", "Rich Dad Poor Dad", "Robert Kiyosaki", 1997);
+        assertEquals("This book already exists", val2);
+    }
 }
